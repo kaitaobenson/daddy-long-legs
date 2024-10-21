@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://cej2yj2ujaw78"]
+
+[ext_resource type="Script" path="res://DaddyLongLegs.gd" id="1_lpudr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rk6uu"]
+radius = 90.1388
+
+[node name="DaddyLongLegs" type="CharacterBody2D"]
+script = ExtResource("1_lpudr")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-798, -207)
+color = Color(0, 0.721569, 0, 1)
+polygon = PackedVector2Array(725, 158, 813, 58, 899, 211, 970, 258, 899, 264, 852, 314, 722, 264, 662, 166)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_rk6uu")
+
+[node name="TargetGrab1" type="Node2D" parent="."]
+position = Vector2(0, -406)
+
+[node name="Polygon2D" type="Polygon2D" parent="TargetGrab1"]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-6, 0, 0, -6, 6, 0, 0, 6)
+
+[node name="TargetGrab2" type="Node2D" parent="."]
+position = Vector2(94, -388)
+
+[node name="Polygon2D" type="Polygon2D" parent="TargetGrab2"]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-6, 0, 0, -6, 6, 0, 0, 6)
+
+[node name="TargetGrab3" type="Node2D" parent="."]
+position = Vector2(-119, -386)
+
+[node name="Polygon2D" type="Polygon2D" parent="TargetGrab3"]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-6, 0, 0, -6, 6, 0, 0, 6)
+
+[node name="TargetGrab4" type="Node2D" parent="."]
+position = Vector2(224, -292)
+
+[node name="Polygon2D" type="Polygon2D" parent="TargetGrab4"]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-6, 0, 0, -6, 6, 0, 0, 6)
+
+[node name="TargetGrab5" type="Node2D" parent="."]
+position = Vector2(-213, -303)
+
+[node name="Polygon2D" type="Polygon2D" parent="TargetGrab5"]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-6, 0, 0, -6, 6, 0, 0, 6)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+debug_enabled = true

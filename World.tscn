@@ -1,3 +1,59 @@
-[gd_scene format=3 uid="uid://8faoas06w46k"]
+[gd_scene load_steps=5 format=3 uid="uid://8faoas06w46k"]
+
+[ext_resource type="Script" path="res://Mouse.gd" id="1_tffyh"]
+[ext_resource type="PackedScene" uid="uid://cej2yj2ujaw78" path="res://DaddyLongLegs.tscn" id="2_dprto"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jm46n"]
+size = Vector2(320.75, 176)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_iuk56"]
+vertices = PackedVector2Array(2085, 379, 1726, 397, 1727, 383, 2085, 374, 3509, -221, 3566, 1878, 3504, 840, 2040, 1200, 3077, 1110, 3496, 1102, 2034, 1493, 3390, 119, 3380, -200, 1673, -255, 2964, -178, -50, -287, 1662, -255, 1255, -106, 2840, 350, 2954, 119, 3086, 857, 2837, 365, 827, 516, 1224, 442, 1705, 418, 1699, 593, 1616, 1194, 802, 240, 388, 253, -237, 1816, 393, 516, 1618, 1457, 2100, 608, 2104, 398)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9, 5, 10), PackedInt32Array(9, 6, 5), PackedInt32Array(4, 6, 11, 12), PackedInt32Array(13, 4, 12, 14), PackedInt32Array(15, 16, 17), PackedInt32Array(18, 13, 14, 19), PackedInt32Array(18, 19, 11, 6, 20, 21), PackedInt32Array(22, 23, 24, 25, 26), PackedInt32Array(23, 22, 27, 17), PackedInt32Array(15, 17, 27, 28), PackedInt32Array(29, 15, 28, 30), PackedInt32Array(10, 5, 29, 31), PackedInt32Array(31, 29, 30, 22, 26), PackedInt32Array(8, 7, 26, 25, 32, 20), PackedInt32Array(21, 20, 32, 33)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-60, -298, 3519, -231, 3577, 1889, -248, 1826), PackedVector2Array(398, 263, 403, 506, 816, 506, 793, 250), PackedVector2Array(1265, -99, 1235, 431, 2829, 355, 1668, -247), PackedVector2Array(1718, 374, 1709, 583, 2090, 598, 2096, 364), PackedVector2Array(2974, -168, 2964, 109, 3380, 109, 3370, -189), PackedVector2Array(1626, 1204, 1628, 1448, 2024, 1482, 2030, 1210), PackedVector2Array(3096, 867, 3087, 1100, 3486, 1092, 3494, 850)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="World" type="Node2D"]
+
+[node name="Mouse" type="Polygon2D" parent="."]
+position = Vector2(-4.54747e-13, 0)
+scale = Vector2(0.281788, 0.330411)
+color = Color(1, 0, 0, 1)
+offset = Vector2(-2.90353, 0)
+polygon = PackedVector2Array(-14.5177, -12.1061, -14.5177, 15.1327, 17.4212, 15.1326, 17.4212, -12.1061)
+script = ExtResource("1_tffyh")
+
+[node name="DaddyLongLegs" parent="." instance=ExtResource("2_dprto")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(297, 49)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1604, 516)
+shape = SubResource("RectangleShape2D_jm46n")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2871, -7)
+shape = SubResource("RectangleShape2D_jm46n")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3005, 1019)
+shape = SubResource("RectangleShape2D_jm46n")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1527, 1373)
+shape = SubResource("RectangleShape2D_jm46n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(298, 424)
+shape = SubResource("RectangleShape2D_jm46n")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(968, 459, 1040, -37, 1396, -202, 2447, 374)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1696, 742)
+zoom = Vector2(0.3, 0.3)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(0, 81)
+navigation_polygon = SubResource("NavigationPolygon_iuk56")
